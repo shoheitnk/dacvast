@@ -1,2 +1,29 @@
 <h1>キューポイント一覧</h1>
-<% #TODO %>
+
+<!-- REGISTER BUTTON
+------------------------------>
+<%= link_to "登録", new_cuepoint_path, class: "btn btn-default" %>
+
+<!-- TABLE (HEAD/BODY)
+------------------------------>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <tr>id</tr>
+      <tr>cue point</tr>
+      <tr>create</tr>
+      <tr>update</tr>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cuepoointss.each do |cuepoint| %>
+    <tr>
+      <tr><%= link_to cuepoint.id, edit_cuepoint_path %></tr>
+      <tr><%= link_to cuepoint.name %></tr>
+      <tr><%= link_to cuepoint.create_at %></tr>
+      <tr><%= link_to cuepoint.update_at %></tr>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  

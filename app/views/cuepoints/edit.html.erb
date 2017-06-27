@@ -1,2 +1,14 @@
 <h1>キューポイント編集</h1>
-<% #TODO %>
+
+<!-- FORM (from partial)
+------------------------------>
+<% render 'cuepoints/form' %>
+
+<!-- BUTTONS
+------------------------------>
+<%= f.submit '登録', class: "btn btn-success" %>
+<%= link_to '中止', cuepoints_path, class: "btn btn-default" %>
+<%= link_to '削除',
+    method: :delete, 
+    data: {confirm: '本当に削除してよろしいですか？'}
+    class: "btn btn-danger" %>

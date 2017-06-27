@@ -4,11 +4,11 @@
 ------------------------------>
 <% render 'campaigns/form' %>
 
-<!-- ★BUTTONS
+<!-- BUTTONS
 ------------------------------>
-<%= f.submit '登録', class="btn btn-success" %>
-<%= link_to '中止', campaign_path, class="btn btn-default" %>
+<%= f.submit '登録', class: "btn btn-success" %>
+<%= link_to '中止', campaigns_path, class: "btn btn-default" %>
 <%= link_to '削除',
     method: :delete, 
     data: {confirm: '本当に削除してよろしいですか？'}
-    class="btn btn-danger" %>
+    class: "btn btn-danger" %>
