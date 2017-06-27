@@ -1,2 +1,28 @@
 <h1>Results</h1>
-<% #TODO %>
+
+<!-- TABLE (HEAD/BODY)
+------------------------------>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <tr>Campaign ID</tr>
+      <tr>Campaign name</tr>
+      <tr>Cuepoint ID</tr>
+      <tr>Cuepoint</tr>
+      <tr>Start</tr>
+      <tr>Complete</tr>
+    </tr>
+  </thead>
+  <tbody>
+    <% @results.each do |result| %>
+    <tr>
+      <tr><%= link_to result.campaign.id %></tr>
+      <tr><%= link_to result.campaign.name %></tr>
+      <tr><%= link_to result.cuepoint.id %></tr>
+      <tr><%= link_to result.cuepoint.name %></tr>
+      <tr><%= link_to result.count_start %></tr>
+      <tr><%= link_to result.count_complete %></tr>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
