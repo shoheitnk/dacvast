@@ -1,2 +1,35 @@
 <h1>キャンペーン一覧</h1>
-<% #TODO %>
+
+<!-- REGISTER BUTTON
+------------------------------>
+<%= link_to "キャンペーン登録", new_campaign_path, class= "btn btn-default" %>
+
+<!-- TABLE (HEAD/BODY)
+------------------------------>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <tr>id</tr>
+      <tr>name</tr>
+      <tr>start</tr>
+      <tr>end</tr>
+      <tr>limit</tr>
+      <tr>create</tr>
+      <tr>update</tr>
+    </tr>
+  </thead>
+  <tbody>
+    <% @campaigns.each do |campaign| %>
+    <tr>
+      <tr><%= link_to campaign.id, edit_campaign_path %></tr>
+      <tr><%= link_to campaign.name %></tr>
+      <tr><%= link_to campaign.start_at %></tr>
+      <tr><%= link_to campaign.end_at %></tr>
+      <tr><%= link_to campaign.limit_start %></tr>
+      <tr><%= link_to campaign.create_at %></tr>
+      <tr><%= link_to campaign.update_at %></tr>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  
