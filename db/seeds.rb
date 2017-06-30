@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Campaigns
+(1...50).each do |number|
+  Campaign.create(name: 'test name' + number.to_s,
+                  start_at: DateTime.now,
+                  end_at: DateTime.now + 1,
+                  limit_start: number.to_s,
+                  movie_url: 'test' + number.to_s + '.com')
+end
+
+# cuepoints
+(1...50).each do |number|
+  Cuepoint.create(name: 'test name' + number.to_s)
+end

@@ -2,9 +2,14 @@
 
 <!-- FORM (from partial)
 ------------------------------>
-<% render 'campaigns/form' %>
+<%= form_for(@campaign) do |f| %>
+
+<%= render 'shared/error_messages', object: f.object %>
+<%= render partial: 'campaigns/form', locals: { f: f } %>
 
 <!-- BUTTONS
 ------------------------------>
 <%= f.submit '登録', class: "btn btn-success" %>
 <%= link_to '中止', campaigns_path, class: "btn btn-default" %>
+
+<% end %>

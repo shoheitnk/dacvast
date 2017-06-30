@@ -2,13 +2,17 @@
 
 <!-- FORM (from partial)
 ------------------------------>
-<% render 'campaigns/form' %>
+<%= form_for(@campaign) do |f| %>
+
+<%= render 'shared/error_messages', object: f.object %>
+<%= render partial: 'campaigns/form', locals: { f: f } %>
 
 <!-- BUTTONS
 ------------------------------>
 <%= f.submit '登録', class: "btn btn-success" %>
 <%= link_to '中止', campaigns_path, class: "btn btn-default" %>
-<%= link_to '削除',
-    method: :delete, 
-    data: {confirm: '本当に削除してよろしいですか？'}
-    class: "btn btn-danger" %>
+<%= link_to '削除', campaign_path(@campaign.id),
+                    method: :delete, 
+                    data: { confirm: '本当に削除してよろしいですか？' },
+                    class: 'btn btn-danger' %>
+<% end %>

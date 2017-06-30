@@ -5,23 +5,23 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <tr>Campaign ID</tr>
-      <tr>Campaign name</tr>
-      <tr>Cuepoint ID</tr>
-      <tr>Cuepoint</tr>
-      <tr>Start</tr>
-      <tr>Complete</tr>
+      <th>Campaign ID</th>
+      <th>Campaign name</th>
+      <th>Cuepoint ID</th>
+      <th>Cuepoint</th>
+      <th>Start</th>
+      <th>Complete</th>
     </tr>
   </thead>
   <tbody>
     <% @results.each do |result| %>
     <tr>
-      <tr><%= link_to result.campaign.id %></tr>
-      <tr><%= link_to result.campaign.name %></tr>
-      <tr><%= link_to result.cuepoint.id %></tr>
-      <tr><%= link_to result.cuepoint.name %></tr>
-      <tr><%= link_to result.count_start %></tr>
-      <tr><%= link_to result.count_complete %></tr>
+      <td><%= link_to result.campaign.id %></td>
+      <td><%= link_to result.campaign.name %></td>
+      <td><%= link_to result.cuepoint.id %></td>
+      <td><%= link_to result.cuepoint.name %></td>
+      <td><%= link_to result.count_start %></td>
+      <td><%= link_to result.count_complete %></td>
     </tr>
     <% end %>
   </tbody>

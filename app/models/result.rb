@@ -1,9 +1,11 @@
 # 結果クラス
 class Result < ApplicationRecord
-  # TODO
+  belongs_to :campaign
+  belongs_to :cuepoint
+  # validations
 
   private
-    # 初期化
+    # initialize
     def zero_clear
       # TODO
     end
