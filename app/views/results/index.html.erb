@@ -16,12 +16,12 @@
   <tbody>
     <% @results.each do |result| %>
     <tr>
-      <td><%= link_to result.campaign.id %></td>
-      <td><%= link_to result.campaign.name %></td>
-      <td><%= link_to result.cuepoint.id %></td>
-      <td><%= link_to result.cuepoint.name %></td>
-      <td><%= link_to result.count_start %></td>
-      <td><%= link_to result.count_complete %></td>
+      <td><%= result.campaign.id %></td>
+      <td><%= result.campaign.name %></td>
+      <td><%= result.cuepoint.id %></td>
+      <td><%= result.cuepoint.name %></td>
+      <td><%= result.count_start %></td>
+      <td><%= result.count_complete %></td>
     </tr>
     <% end %>
   </tbody>

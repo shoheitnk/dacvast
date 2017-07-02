@@ -5,12 +5,11 @@ class CampaignsController < ApplicationController
   # 一覧表示
   def index
     unless params[:cuepoint_id]
-      # TODO cuepointについては考えないで実装
       @campaigns = Campaign.all.order("created_at DESC")
     else
       # 下記はVAST URL呼び出しを想定
-      # TODO
-      campaigns = campaign.current_avaliable 
+      @cuepoints = Cuepoint.find(params[:id])
+      @campaigns = Campaign.current_avaliable(@cuepoint) 
       response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
       response.headers['Access-Control-Allow-Methods'] = 'GET'
       headers['Access-Control-Request-Method'] = '*'
@@ -22,7 +21,7 @@ class CampaignsController < ApplicationController
   # 新規
   def new
     @campaign = Campaign.new
-    #@cuepoint = Cuepoint.all #チェックボックスの裏で呼び出しが必要？ 
+    # @cuepoints = Cuepoint.all #チェックボックスの裏で呼び出しが必要？ 
   end
 
   # 作成
@@ -30,7 +29,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
       flash[:success] = 'キャンペーンが登録されました。'
-      redirect_to campaigns_url
+      redirect_to campaigns_path
     else
       flash.now[:danger] = 'キャンペーンを登録できませんでした。'
       render :new
@@ -39,7 +38,7 @@ class CampaignsController < ApplicationController
 
   # 編集
   def edit
-    # @cuepoints = @campain.cuepoints #newと同じ理由で。
+    # @cuepoints = @Cuepoint.all #newと同じ理由で。
   end
 
   # 更新
