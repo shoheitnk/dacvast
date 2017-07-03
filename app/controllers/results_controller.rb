@@ -2,7 +2,7 @@
 class ResultsController < ApplicationController
   # 結果一覧表示
   def index
-    @results = Result.all.oreder(:cuepoint_id, :cmapaign_id)
+    @results = Result.all.order(:cuepoint_id, :campaign_id)
   end
 
   # 結果追加

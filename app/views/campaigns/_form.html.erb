@@ -47,3 +47,19 @@
     </div>
   </div>
 </div>
+
+<!-- CUE POINTS
+------------------------------>
+  <div class="form-group">
+    <%= f.label :cuepoints, class: 'col-form-label' %>
+    <div class="col-sm-4">
+      <%# cuepoints.each do |cuepoint|%>
+      <div class="check_box">
+        <%= f.collection_check_boxes(:cuepoint_ids, Cuepoint.all, :id, :name) do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <%# end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
