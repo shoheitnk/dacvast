@@ -9,8 +9,8 @@
 
 <!-- BUTTONS
 ------------------------------>
-<%= f.submit '登録', class: "btn btn-success" %>
-<%= link_to '中止', campaigns_path, class: "btn btn-default" %>
+<%= f.submit '編集', class: "btn btn-success" %>
+<%= link_to 'キャンセル', campaigns_path, class: "btn btn-default" %>
 <%= link_to '削除', campaign_path(@campaign.id),
                     method: :delete, 
                     data: { confirm: '本当に削除してよろしいですか？' },

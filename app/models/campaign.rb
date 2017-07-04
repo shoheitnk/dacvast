@@ -27,7 +27,9 @@ validate :start_end
   #  - Resultのスタート数(count_start)がキャンペーンの制限(limit_start)以内。
   # @param [Cuepoint, #read] cuepoint キャンペーンの対象となっている Cue Point
   # @return [Array] 該当キャンペーンの配列
-#  def self.current_avaliable(cuepoint)
-#    campaigns = cuepoint.campaigns
-#  end
+  
+  def self.current_avaliable(cuepoint)
+    campaigns = cuepoint.campaigns.where("start_at <= '#{Time.now}' AND end_at >= '#{Time.now}'")
+    result.count_start >= campaign.limit_start
+  end
 end

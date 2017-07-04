@@ -21,7 +21,6 @@ class CampaignsController < ApplicationController
   # 新規
   def new
     @campaign = Campaign.new
-    # @cuepoints = Cuepoint.all #チェックボックスの裏で呼び出しが必要？ 
   end
 
   # 作成
@@ -38,7 +37,6 @@ class CampaignsController < ApplicationController
 
   # 編集
   def edit
-    # @cuepoints = @Cuepoint.all #newと同じ理由で。
   end
 
   # 更新
@@ -66,6 +64,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:name, :start_at, :end_at, :limit_start, :movie_url)
+    params.require(:campaign).permit(:name, :start_at, :end_at, :limit_start, :movie_url, :cuepoint_ids => [])
   end
 end

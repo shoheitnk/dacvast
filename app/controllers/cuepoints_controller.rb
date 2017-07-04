@@ -9,7 +9,7 @@ class CuepointsController < ApplicationController
 
   # 新規
   def new
-    @cuepoin = Cuepoint.new
+    @cuepoint = Cuepoint.new
   end
 
   # 作成
@@ -32,9 +32,9 @@ class CuepointsController < ApplicationController
   def update
     if @cuepoint.update(cuepoint_params)
       flash[:success] = 'キューポイントが更新されました。'
-      redirect_to cuepoint_url
+      redirect_to cuepoints_url
     else
-      fash.now[:danger] = 'キューポイントが更新されませんでした。'
+      flash.now[:danger] = 'キューポイントが更新されませんでした。'
       render :edit
     end
   end
@@ -49,7 +49,7 @@ class CuepointsController < ApplicationController
   private
     # キューポイント用パラメータ
     def cuepoint_params
-      params.require(:cuepoint).permit(:name)
+      params[:cuepoint].permit(:name)
     end
     
     def set_cuepoint

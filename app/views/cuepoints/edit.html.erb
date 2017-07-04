@@ -6,11 +6,12 @@
 
 <%= render 'shared/error_messages', object: f.object %>
 <%= render partial: 'cuepoints/form', locals: { f: f } %>
+<p>VAST URL:<%= vast_url(@cuepoint) %></p>
 
 <!-- BUTTONS
 ------------------------------>
-<%= f.submit '登録', class: 'btn btn-success btn-centered' %>
-<%= link_to '中止', cuepoints_path, class: 'btn btn-default' %>
+<%= f.submit '編集', class: 'btn btn-success btn-centered' %>
+<%= link_to 'キャンセル', cuepoints_path, class: 'btn btn-default' %>
 <%= link_to '削除', cuepoint_path(@cuepoint.id),
                     method: :delete,
                     data: { confirm: '本当に削除してよろしいですか？' },
