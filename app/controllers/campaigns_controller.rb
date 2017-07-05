@@ -8,8 +8,8 @@ class CampaignsController < ApplicationController
       @campaigns = Campaign.all.order("created_at DESC")
     else
       # 下記はVAST URL呼び出しを想定
-      @cuepoints = Cuepoint.find(params[:id])
-      @campaigns = Campaign.current_avaliable(@cuepoint) 
+      @cuepoints = Cuepoint.find(params[:cuepoint_id])
+      @campaigns = Campaign.current_avaliable(@cuepoints) 
       response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
       response.headers['Access-Control-Allow-Methods'] = 'GET'
       headers['Access-Control-Request-Method'] = '*'

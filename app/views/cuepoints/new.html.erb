@@ -4,8 +4,8 @@
 ------------------------------>
 <%= form_for(@cuepoint) do |f| %>
 
-<% render 'shared/error_messages',  object: f.object %>
-<% render partial: 'cuepoints/form', locals: { f: f } %>
+<%= render 'shared/error_messages',  object: f.object %>
+<%= render partial: 'cuepoints/form', locals: { f: f } %>
 
 <!-- BUTTONS
 ------------------------------>

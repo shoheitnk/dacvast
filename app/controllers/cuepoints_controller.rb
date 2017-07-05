@@ -49,7 +49,7 @@ class CuepointsController < ApplicationController
   private
     # キューポイント用パラメータ
     def cuepoint_params
-      params[:cuepoint].permit(:name)
+      params.require(:cuepoint).permit(:name)
     end
     
     def set_cuepoint
