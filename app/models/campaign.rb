@@ -30,6 +30,9 @@ validate :start_end
   
   def self.current_avaliable(cuepoint)
     campaigns = cuepoint.campaigns.where("start_at <= '#{Time.now}' AND end_at >= '#{Time.now}'").to_a
-    #result.count_start >= campaign.limit_start
+    campaigns.delete_if do |campaign|
+            result = Result.where(campaign: campaign, cuepoint: @cuepoint).first
+            !result.blank? && result.count_start >= campaign.limit_start 
+    end
   end
 end

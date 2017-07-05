@@ -7,9 +7,10 @@ class ResultsController < ApplicationController
 
   # 結果追加
   def record
-    @campaign = Campaign.find(params[:id])
-    @cuepoint = Cuepoint.find(params[:id])
+    @campaign = Campaign.find(params[:campaign])
+    @cuepoint = Cuepoint.find(params[:cuepoint])
     @result = Result.find_or_initialize_by(campaign: @campaign, cuepoint: @cuepoint)
+
     logger.debug @result.inspect
     if params[:event] == 'start'
       @result.count_start += 1
