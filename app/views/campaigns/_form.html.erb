@@ -50,13 +50,13 @@
 <!-- CUE POINTS
 ------------------------------>
   <div class="form-group">
-    <%= f.label :cuepoints, class: 'col-form-label' %>
+    <%= f.label :cuepoints, class: 'col-sm-2 col-form-label' %>
     <div class="col-sm-4">
-      <div class="check_box">
-        <%= f.collection_check_boxes(:cuepoint_ids, Cuepoint.all, :id, :name) do |b| %>
+      <%= f.collection_check_boxes(:cuepoint_ids, Cuepoint.all, :id, :name) do |b| %>
+        <div class="check_box">
           <%= b.label { b.check_box + b.text } %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
   

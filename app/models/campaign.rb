@@ -34,5 +34,6 @@ validate :start_end
             result = Result.where(campaign: campaign, cuepoint: @cuepoint).first
             !result.blank? && result.count_start >= campaign.limit_start 
     end
+    campaigns
   end
 end

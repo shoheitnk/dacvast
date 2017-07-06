@@ -9,6 +9,6 @@ class Result < ApplicationRecord
     def zero_clear
       #選択してるcampaignのcount_startを呼び出す or ないならば０を入れる。
       self.count_start ||= 0
-      self.count_complete ||=0
+      self.count_complete ||= 0
     end
 end

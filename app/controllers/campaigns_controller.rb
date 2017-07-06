@@ -5,11 +5,11 @@ class CampaignsController < ApplicationController
   # 一覧表示
   def index
     unless params[:cuepoint_id]
-      @campaigns = Campaign.all.order("created_at DESC")
+      @campaigns = Campaign.all#.order("created_at DESC")
     else
       # 下記はVAST URL呼び出しを想定
-      @cuepoints = Cuepoint.find(params[:cuepoint_id])
-      @campaigns = Campaign.current_avaliable(@cuepoints) 
+      @cuepoint = Cuepoint.find(params[:cuepoint_id])
+      @campaigns = Campaign.current_avaliable(@cuepoint) 
       response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
       response.headers['Access-Control-Allow-Methods'] = 'GET'
       headers['Access-Control-Request-Method'] = '*'
